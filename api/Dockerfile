@@ -8,6 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY model/ model/
 COPY api/ api/
+RUN useradd --create-home appuser
+USER appuser
 
 EXPOSE 8000
 
