@@ -1,0 +1,60 @@
+﻿[
+  {
+    "timestamp": "2026-09-25T10:00:00Z",
+    "request": "POST /predict",
+    "input": "sample_0.png",
+    "prediction": 7,
+    "response": "HTTP 200",
+    "attack_test": {
+      "type": "baseline",
+      "status": "normal_prediction"
+    }
+  },
+  {
+    "timestamp": "2026-09-25T10:05:00Z",
+    "request": "POST /predict",
+    "input": "fgsm_adversarial_sample.png",
+    "prediction": 3,
+    "response": "HTTP 200",
+    "attack_test": {
+      "type": "FGSM",
+      "epsilon": 0.1,
+      "original_prediction": 7,
+      "adversarial_prediction": 3,
+      "status": "successful_attack"
+    }
+  },
+  {
+    "timestamp": "2026-09-25T10:10:00Z",
+    "request": "POST /predict",
+    "input": "invalid_test.txt",
+    "prediction": null,
+    "response": "HTTP 400",
+    "attack_test": {
+      "type": "invalid_file_test",
+      "status": "rejected"
+    }
+  },
+  {
+    "timestamp": "2026-09-25T10:15:00Z",
+    "request": "POST /predict",
+    "input": "large_test.bin",
+    "prediction": null,
+    "response": "HTTP 413",
+    "attack_test": {
+      "type": "file_size_limit_test",
+      "status": "rejected"
+    }
+  },
+  {
+    "timestamp": "2026-09-25T10:20:00Z",
+    "request": "POST /predict",
+    "input": "large_dimensions.png",
+    "prediction": null,
+    "response": "HTTP 413",
+    "attack_test": {
+      "type": "image_dimension_limit_test",
+      "status": "rejected"
+    }
+  }
+]
