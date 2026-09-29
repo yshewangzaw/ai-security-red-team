@@ -1,0 +1,252 @@
+[
+  {
+    "query_id": 0,
+    "image": "images/query_000.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 1,
+    "image": "images/query_001.png",
+    "api_prediction": 2
+  },
+  {
+    "query_id": 2,
+    "image": "images/query_002.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 3,
+    "image": "images/query_003.png",
+    "api_prediction": 0
+  },
+  {
+    "query_id": 4,
+    "image": "images/query_004.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 5,
+    "image": "images/query_005.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 6,
+    "image": "images/query_006.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 7,
+    "image": "images/query_007.png",
+    "api_prediction": 9
+  },
+  {
+    "query_id": 8,
+    "image": "images/query_008.png",
+    "api_prediction": 5
+  },
+  {
+    "query_id": 9,
+    "image": "images/query_009.png",
+    "api_prediction": 9
+  },
+  {
+    "query_id": 10,
+    "image": "images/query_010.png",
+    "api_prediction": 0
+  },
+  {
+    "query_id": 11,
+    "image": "images/query_011.png",
+    "api_prediction": 6
+  },
+  {
+    "query_id": 12,
+    "image": "images/query_012.png",
+    "api_prediction": 9
+  },
+  {
+    "query_id": 13,
+    "image": "images/query_013.png",
+    "api_prediction": 0
+  },
+  {
+    "query_id": 14,
+    "image": "images/query_014.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 15,
+    "image": "images/query_015.png",
+    "api_prediction": 5
+  },
+  {
+    "query_id": 16,
+    "image": "images/query_016.png",
+    "api_prediction": 9
+  },
+  {
+    "query_id": 17,
+    "image": "images/query_017.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 18,
+    "image": "images/query_018.png",
+    "api_prediction": 3
+  },
+  {
+    "query_id": 19,
+    "image": "images/query_019.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 20,
+    "image": "images/query_020.png",
+    "api_prediction": 9
+  },
+  {
+    "query_id": 21,
+    "image": "images/query_021.png",
+    "api_prediction": 6
+  },
+  {
+    "query_id": 22,
+    "image": "images/query_022.png",
+    "api_prediction": 6
+  },
+  {
+    "query_id": 23,
+    "image": "images/query_023.png",
+    "api_prediction": 5
+  },
+  {
+    "query_id": 24,
+    "image": "images/query_024.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 25,
+    "image": "images/query_025.png",
+    "api_prediction": 0
+  },
+  {
+    "query_id": 26,
+    "image": "images/query_026.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 27,
+    "image": "images/query_027.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 28,
+    "image": "images/query_028.png",
+    "api_prediction": 0
+  },
+  {
+    "query_id": 29,
+    "image": "images/query_029.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 30,
+    "image": "images/query_030.png",
+    "api_prediction": 3
+  },
+  {
+    "query_id": 31,
+    "image": "images/query_031.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 32,
+    "image": "images/query_032.png",
+    "api_prediction": 3
+  },
+  {
+    "query_id": 33,
+    "image": "images/query_033.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 34,
+    "image": "images/query_034.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 35,
+    "image": "images/query_035.png",
+    "api_prediction": 2
+  },
+  {
+    "query_id": 36,
+    "image": "images/query_036.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 37,
+    "image": "images/query_037.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 38,
+    "image": "images/query_038.png",
+    "api_prediction": 2
+  },
+  {
+    "query_id": 39,
+    "image": "images/query_039.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 40,
+    "image": "images/query_040.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 41,
+    "image": "images/query_041.png",
+    "api_prediction": 7
+  },
+  {
+    "query_id": 42,
+    "image": "images/query_042.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 43,
+    "image": "images/query_043.png",
+    "api_prediction": 2
+  },
+  {
+    "query_id": 44,
+    "image": "images/query_044.png",
+    "api_prediction": 3
+  },
+  {
+    "query_id": 45,
+    "image": "images/query_045.png",
+    "api_prediction": 5
+  },
+  {
+    "query_id": 46,
+    "image": "images/query_046.png",
+    "api_prediction": 1
+  },
+  {
+    "query_id": 47,
+    "image": "images/query_047.png",
+    "api_prediction": 2
+  },
+  {
+    "query_id": 48,
+    "image": "images/query_048.png",
+    "api_prediction": 4
+  },
+  {
+    "query_id": 49,
+    "image": "images/query_049.png",
+    "api_prediction": 4
+  }
+]

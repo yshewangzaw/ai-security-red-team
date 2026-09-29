@@ -1,10 +1,11 @@
-# AI Security Red Team Assessment — Attack Report
+# AI Security Red Team Assessment ï¿½ Attack Report
 
 ## 1. Assessment Overview
 
 This assessment evaluated the security of a local MNIST image-classification API built with PyTorch and FastAPI.
 
 The assessment focused on:
+
 - Inference API reconnaissance
 - Adversarial examples
 - Input validation
@@ -45,6 +46,7 @@ The /model-info, /docs, and /openapi.json endpoints also provide information abo
 - API verification: Successful
 
 Evidence:
+
 - samples/original/fgsm_original.png
 - samples/adversarial/fgsm_adversarial.png
 
@@ -57,6 +59,7 @@ Evidence:
 - API verification: Successful
 
 Evidence:
+
 - samples/original/fgsm_original_02.png
 - samples/adversarial/fgsm_adversarial_02.png
 
@@ -71,11 +74,12 @@ Evidence:
 - API verification: Successful
 
 Evidence:
+
 - samples/adversarial/pgd_from_scratch_7_to_3.png
 
 ## 5. Security Findings
 
-### Finding 1 — Adversarial Input Vulnerability
+### Finding 1 ï¿½ Adversarial Input Vulnerability
 
 The model produced incorrect predictions when tested with crafted adversarial inputs.
 
@@ -85,40 +89,55 @@ The model produced incorrect predictions when tested with crafted adversarial in
 
 **Mitigation:** Adversarial robustness should be considered in future model-development and validation processes.
 
-### Finding 2 — Insufficient Input Validation
+### Finding 2 ï¿½ Insufficient Input Validation
 
 Before hardening, the API accepted invalid files and oversized inputs.
 
 **Mitigation implemented:**
+
 - Invalid image rejection
 - Empty file rejection
 - 5 MB file-size limit
-- 2048 × 2048 image-dimension limit
+- 2048 ï¿½ 2048 image-dimension limit
 
-### Finding 3 — Model Integrity Risk
+### Finding 3 â€” Model Integrity Risk
 
-Unauthorized modification of model.pth could potentially change model behavior.
+The original API loaded `model/model.pth` without an explicit cryptographic integrity check before loading the model.
+
+To test the integrity control, a copy of the trusted model was intentionally modified by changing one byte. The SHA-256 hashes were then compared:
+
+- Trusted model SHA-256: `5F8FF54138F8F8F242FDC3AE6A89CE4D0A9404EE4A35A2842356191D2500A8FE`
+- Tampered test copy SHA-256: `21DCC3FB7D48405E8E311EAC2A6D2518A2E5A54AB3675E90F73F2F9B8CC2ABB9`
+
+The different hashes confirmed that the test copy had been modified.
 
 **Mitigation implemented:**
-- SHA-256 model hash
-- Integrity verification before model loading
-- weights_only=True during model loading
 
-A tampered model test caused startup failure with:
+- SHA-256 hash stored in `model/model.sha256`
+- SHA-256 calculated for `model/model.pth` during application startup
+- Expected and actual hashes compared before model loading
+- Application startup stopped when the hashes did not match
+- `weights_only=True` used during PyTorch model loading
 
-Model integrity check failed.
+**Post-mitigation verification:**
 
-### Finding 4 — Excessive Container Privileges
+The hardened integrity check was tested against the intentionally modified model copy. The application rejected the modified model with:
+
+`RuntimeError: Model integrity check failed.`
+
+This demonstrates that the implemented integrity control detects a modification to the model file before the model is loaded.
+
+### Finding 4 ï¿½ Excessive Container Privileges
 
 The original container ran as root and retained unnecessary Linux capabilities.
 
 **Mitigation implemented:**
+
 - Dedicated non-root ppuser
 - Read-only root filesystem
 - Temporary writable /tmp
 - cap-drop=ALL
-- 
-o-new-privileges
+- o-new-privileges
 
 ## 6. Post-Mitigation Verification
 
@@ -126,18 +145,18 @@ The hardened deployment was re-tested.
 
 Results:
 
-| Test | Result |
-|---|---|
-| Health endpoint | PASS |
-| Normal prediction | PASS |
-| Invalid file rejection | PASS |
-| Oversized file rejection | PASS |
-| Oversized image rejection | PASS |
-| Model SHA-256 verification | PASS |
-| Non-root execution | PASS |
-| Read-only filesystem | PASS |
-| All capabilities dropped | PASS |
-| No-new-privileges | PASS |
+| Test                       | Result |
+| -------------------------- | ------ |
+| Health endpoint            | PASS   |
+| Normal prediction          | PASS   |
+| Invalid file rejection     | PASS   |
+| Oversized file rejection   | PASS   |
+| Oversized image rejection  | PASS   |
+| Model SHA-256 verification | PASS   |
+| Non-root execution         | PASS   |
+| Read-only filesystem       | PASS   |
+| All capabilities dropped   | PASS   |
+| No-new-privileges          | PASS   |
 
 Normal inference remained functional after the security controls were applied.
 
@@ -145,27 +164,27 @@ Normal inference remained functional after the security controls were applied.
 
 The assessment activities map to:
 
-- AML.T0040 — AI Model Inference API Access
-- AML.T0043 — Craft Adversarial Data
-- AML.T0042 — Verify Attack
-- AML.T0031 — Erode ML Model Integrity
+- AML.T0040 ï¿½ AI Model Inference API Access
+- AML.T0043 ï¿½ Craft Adversarial Data
+- AML.T0042 ï¿½ Verify Attack
+- AML.T0031 ï¿½ Erode ML Model Integrity
 
 Detailed mapping is documented in:
 
-eport/mitre-atlas-mapping.md
+eport/mitre-atlas-mapping.md
 
 ## 8. NIST AI RMF Alignment
 
 The assessment also considered:
 
-- GOVERN — security and AI-use documentation
-- MAP — identification of the AI attack surface and risks
-- MEASURE — baseline, adversarial attacks, and security tests
-- MANAGE — implementation and verification of security mitigations
+- GOVERN ï¿½ security and AI-use documentation
+- MAP ï¿½ identification of the AI attack surface and risks
+- MEASURE ï¿½ baseline, adversarial attacks, and security tests
+- MANAGE ï¿½ implementation and verification of security mitigations
 
 Detailed mapping is documented in:
 
-eport/nist-ai-rmf-mapping.md
+eport/nist-ai-rmf-mapping.md
 
 ## 9. Limitations
 

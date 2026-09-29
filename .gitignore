@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 data/
 .env
+api/app_integrity_test.py
+samples/model_tampered_test.pth
+api/app_before.py
+# Microsoft Office temporary/lock files
+~$*

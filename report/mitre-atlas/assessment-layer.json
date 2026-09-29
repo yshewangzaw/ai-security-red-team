@@ -1,0 +1,41 @@
+﻿{
+  "versions": {
+    "layer": "4.3",
+    "navigator": "5.3.2"
+  },
+  "domain": "atlas-atlas",
+  "metadata": [
+    {
+      "name": "assessment",
+      "value": "AI Security Red Team Assessment"
+    },
+    {
+      "name": "evidence",
+      "value": "Local MNIST FastAPI assessment"
+    }
+  ],
+  "name": "AI Security Red Team Assessment",
+  "description": "MITRE ATLAS techniques demonstrated or verified during the local AI security red team assessment. The layer is limited to activities supported by project evidence.",
+  "techniques": [
+    {
+      "techniqueID": "AML.T0040",
+      "comment": "Inference API access was tested through the local FastAPI /predict endpoint.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0043",
+      "comment": "FGSM and PGD adversarial examples were successfully crafted against the MNIST model.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0042",
+      "comment": "Adversarial examples were verified by submitting them to the deployed local inference API.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "AML.T0031",
+      "comment": "A controlled model-file tampering test demonstrated the model-integrity threat and the resulting integrity-check rejection.",
+      "enabled": true
+    }
+  ]
+}
